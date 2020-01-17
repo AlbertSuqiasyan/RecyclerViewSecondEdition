@@ -1,5 +1,8 @@
 package com.example.recyclerviewhomework
 
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+
 
 data class DownloadedData(
     val response: Response
@@ -17,10 +20,13 @@ data class Response(
     val userTier: String
 )
 
+@Entity(tableName = "Result")
 data class Result(
     val apiUrl: String,
     val fields: Fields,
+    @PrimaryKey(autoGenerate = true)
     val id: String,
+
     val isHosted: Boolean,
     val pillarId: String,
     val pillarName: String,

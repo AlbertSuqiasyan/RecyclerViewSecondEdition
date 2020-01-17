@@ -3,7 +3,7 @@ package com.example.recyclerviewhomework
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 
-class ResultAdapter(private val list: List<Result>) : RecyclerView.Adapter<ResultViewHolder>() {
+class ResultAdapter(private val list: List<Result>,val clickListener: ResultListener) : RecyclerView.Adapter<ResultViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ResultViewHolder {
         return ResultViewHolder.from(parent)
     }
@@ -14,26 +14,10 @@ class ResultAdapter(private val list: List<Result>) : RecyclerView.Adapter<Resul
 
     override fun onBindViewHolder(holder: ResultViewHolder, position: Int) {
         val item: Result = list[position]
-        holder.bind(item)
+        holder.bind(item,clickListener)
+
     }
 }
-
-
-
-
-// how to pass the result id?
-//delete the class is program works(sort of)
-class ResultListener(val clickListener: ()){
-    fun onClick(item: Result) =
-}
-
-
-
-
-
-
-
-
 
 
 
