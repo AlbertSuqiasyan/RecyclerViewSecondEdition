@@ -24,6 +24,7 @@ data class Response(
 data class Result(
     val apiUrl: String,
     val fields: Fields,
+
     @PrimaryKey(autoGenerate = true)
     val id: String,
 

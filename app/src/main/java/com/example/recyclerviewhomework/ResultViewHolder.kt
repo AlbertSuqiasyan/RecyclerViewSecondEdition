@@ -13,7 +13,7 @@ class ResultViewHolder private constructor(val binding: ListItemBinding) : Recyc
 
     fun bind(item: Result, clickListener: ResultListener) {
         binding.articleNameText.text = item.webTitle
-        binding.clickListener = clickListener
+        binding.listItem.setOnClickListener{view: View? -> clickListener.onClick(item) }
         Picasso.with(itemView.context)
             .load(item.fields.thumbnail)
             .into(itemView.article_thumbnail_image)
