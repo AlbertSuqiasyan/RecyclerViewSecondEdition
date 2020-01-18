@@ -11,11 +11,13 @@ import com.example.recyclerviewhomework.databinding.FragmentClicketItemBinding
 
 class ClicketItemFragment : Fragment() {
 
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,savedInstanceState: Bundle?): View? {
         val binding = DataBindingUtil.inflate<FragmentClicketItemBinding>(inflater,R.layout.fragment_clicket_item,container,false)
+
 //        val args = MainFragmentArgs.fromBundle(arguments!!)
-//        val downloadedRoomDataBase = DownloadedRoomDataBase.getInstance()
-        binding.articleDateText.text =
+//        val key = args.resultId
+//        binding.articleDateText.text = key
 
         return binding.root
     }

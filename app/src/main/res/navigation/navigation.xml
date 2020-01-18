@@ -16,7 +16,8 @@
             app:destination="@id/clicketItemFragment" />
         <argument
             android:name="resultId"
-            app:argType="string" />
+            app:argType="string"
+            />
     </fragment>
     <fragment
         android:id="@+id/clicketItemFragment"
