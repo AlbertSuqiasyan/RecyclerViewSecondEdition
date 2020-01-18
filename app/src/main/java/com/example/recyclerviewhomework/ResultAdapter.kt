@@ -5,13 +5,13 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 
-class ResultAdapter(private val list: List<Result>,val clickListener: ResultListener) : ListAdapter<Result,ResultViewHolder>(ResultDiffCallback(list)) {
+//class ResultAdapter(private val list: List<Result>,val clickListener: ResultListener) : ListAdapter<Result,ResultViewHolder>(ResultDiffCallback(list))
+
+class ResultAdapter(private val list: List<Result>,val clickListener: ResultListener) : RecyclerView.Adapter<ResultViewHolder>() {
+    override fun getItemCount(): Int = list.size
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ResultViewHolder {
         return ResultViewHolder.from(parent)
-    }
-
-    override fun getItemCount(): Int {
-        return list.size
     }
 
     override fun onBindViewHolder(holder: ResultViewHolder, position: Int) {
@@ -21,17 +21,14 @@ class ResultAdapter(private val list: List<Result>,val clickListener: ResultList
     }
 }
 
-
-
-
 // try diffutil again later
-class ResultDiffCallback(private val list: List<Result>) : DiffUtil.ItemCallback<Result>() {
-    override fun areItemsTheSame(oldItem: Result, newItem: Result): Boolean {
-        return oldItem.webTitle == newItem.webTitle
-    }
-
-    override fun areContentsTheSame(oldItem: Result, newItem: Result): Boolean {
-        return oldItem == newItem
-    }
-
-}
+//class ResultDiffCallback(private val list: List<Result>) : DiffUtil.ItemCallback<Result>() {
+//    override fun areItemsTheSame(oldItem: Result, newItem: Result): Boolean {
+//        return oldItem.webTitle == newItem.webTitle
+//    }
+//
+//    override fun areContentsTheSame(oldItem: Result, newItem: Result): Boolean {
+//        return oldItem == newItem
+//    }
+//
+//}

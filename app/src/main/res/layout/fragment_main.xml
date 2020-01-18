@@ -7,6 +7,7 @@
         <variable
             name="viewModel"
             type="com.example.recyclerviewhomework.ResultViewModel" />
+
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

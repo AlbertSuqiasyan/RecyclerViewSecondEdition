@@ -9,8 +9,8 @@ import com.example.recyclerviewhomework.databinding.ListItemBinding
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.list_item.view.*
 
-class ResultViewHolder private constructor(val binding: ListItemBinding) :
-    RecyclerView.ViewHolder(binding.root) {
+class ResultViewHolder private constructor(val binding: ListItemBinding) : RecyclerView.ViewHolder(binding.root) {
+
     fun bind(item: Result, clickListener: ResultListener) {
         binding.articleNameText.text = item.webTitle
         binding.clickListener = clickListener
