@@ -23,5 +23,9 @@
         android:id="@+id/clicketItemFragment"
         android:name="com.example.recyclerviewhomework.ClicketItemFragment"
         android:label="fragment_clicket_item"
-        tools:layout="@layout/fragment_clicket_item" />
+        tools:layout="@layout/fragment_clicket_item" >
+        <argument
+            android:name="resultId"
+            app:argType="string" />
+    </fragment>
 </navigation>

@@ -13,6 +13,9 @@ interface DownloadedDataDao{
     @Update
     fun update(result: Result)
 
-    @Query("SELECT * from Result WHERE id = :key")
-    fun get(key: String)
+    @Query("SELECT * from result_table WHERE id = :key")
+    fun get(key: String): Result?
+
+    @Query("SELECT * FROM result_table ORDER BY id DESC LIMIT 1")
+    fun getResult(): Result?
 }

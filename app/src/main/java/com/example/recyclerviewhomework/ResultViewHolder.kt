@@ -16,7 +16,7 @@ class ResultViewHolder private constructor(val binding: ListItemBinding) : Recyc
         binding.listItem.setOnClickListener{view: View? -> clickListener.onClick(item) }
         Picasso.with(itemView.context)
             .load(item.fields.thumbnail)
-            .into(itemView.article_thumbnail_image)
+            .into(binding.articleThumbnailImage)
         binding.executePendingBindings()
     }
 

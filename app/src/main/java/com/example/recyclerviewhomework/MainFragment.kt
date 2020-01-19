@@ -10,9 +10,9 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.recyclerviewhomework.databinding.FragmentMainBinding
-import androidx.navigation.fragment.findNavController
 
 
 class MainFragment : Fragment() {
@@ -30,8 +30,7 @@ class MainFragment : Fragment() {
         viewModel.response.observe(viewLifecycleOwner, Observer {resultList ->
             binding.recyclerView.adapter = ResultAdapter(resultList,ResultListener { resultId ->
                 Log.i("resultId","$resultId")
-                val action = MainFragmentDirections.actionMainFragmentToClicketItemFragment(resultId)
-                    this.findNavController().navigate(action)
+                this.view?.findNavController()?.navigate(MainFragmentDirections.actionMainFragmentToClicketItemFragment(resultId))
                  })
         })
 
