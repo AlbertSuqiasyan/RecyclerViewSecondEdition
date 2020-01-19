@@ -1,8 +1,6 @@
 package com.example.recyclerviewhomework
 
 import android.view.ViewGroup
-import androidx.recyclerview.widget.DiffUtil
-import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 
 //class ResultAdapter(private val list: List<Result>,val clickListener: ResultListener) : ListAdapter<Result,ResultViewHolder>(ResultDiffCallback(list))
@@ -16,9 +14,13 @@ class ResultAdapter(private val list: List<Result>,val clickListener: ResultList
 
     override fun onBindViewHolder(holder: ResultViewHolder, position: Int) {
         val item: Result = list[position]
-        holder.bind(item,clickListener)
+        val itemPosition = position
+        holder.bind(item,clickListener,itemPosition)
 
     }
+}
+class ResultListener(val clickListener: (resultId: String,itemPosition: Int) -> Unit) {
+    fun onClick(result: Result, itemPosition: Int) = clickListener(result.id,itemPosition)
 }
 
 // try diffutil again later

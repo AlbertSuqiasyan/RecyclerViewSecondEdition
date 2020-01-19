@@ -13,6 +13,7 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.recyclerviewhomework.databinding.FragmentMainBinding
+import kotlinx.android.synthetic.main.fragment_main.*
 
 
 class MainFragment : Fragment() {
@@ -28,9 +29,10 @@ class MainFragment : Fragment() {
         binding.viewModel = viewModel
 
         viewModel.response.observe(viewLifecycleOwner, Observer {resultList ->
-            binding.recyclerView.adapter = ResultAdapter(resultList,ResultListener { resultId ->
+            binding.recyclerView.adapter = ResultAdapter(resultList,ResultListener { resultId,itemPosition ->
                 Log.i("resultId","$resultId")
-                this.view?.findNavController()?.navigate(MainFragmentDirections.actionMainFragmentToClicketItemFragment(resultId))
+                binding.recyclerView.findViewHolderForItemId(itemPosition.toLong())?.itemView?.findNavController()
+                ?.navigate(MainFragmentDirections.actionMainFragmentToClicketItemFragment(resultId))
                  })
         })
 

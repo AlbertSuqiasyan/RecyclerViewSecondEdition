@@ -3,17 +3,19 @@ package com.example.recyclerviewhomework
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.recyclerviewhomework.databinding.ListItemBinding
 import com.squareup.picasso.Picasso
-import kotlinx.android.synthetic.main.list_item.view.*
 
 class ResultViewHolder private constructor(val binding: ListItemBinding) : RecyclerView.ViewHolder(binding.root) {
 
-    fun bind(item: Result, clickListener: ResultListener) {
+    fun bind(
+        item: Result,
+        clickListener: ResultListener,
+        itemPosition: Int
+    ) {
         binding.articleNameText.text = item.webTitle
-        binding.listItem.setOnClickListener{view: View? -> clickListener.onClick(item) }
+        binding.listItem.setOnClickListener{view: View? -> clickListener.onClick(item,itemPosition) }
         Picasso.with(itemView.context)
             .load(item.fields.thumbnail)
             .into(binding.articleThumbnailImage)
@@ -27,5 +29,6 @@ class ResultViewHolder private constructor(val binding: ListItemBinding) : Recyc
             return ResultViewHolder(binding)
         }
     }
+
 
 }
