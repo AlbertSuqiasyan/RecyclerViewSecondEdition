@@ -14,10 +14,6 @@
         <action
             android:id="@+id/action_mainFragment_to_clicketItemFragment"
             app:destination="@id/clicketItemFragment" />
-        <argument
-            android:name="resultId"
-            app:argType="string"
-            />
     </fragment>
     <fragment
         android:id="@+id/clicketItemFragment"

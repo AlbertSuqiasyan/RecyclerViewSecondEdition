@@ -15,7 +15,7 @@ class ClicketItemFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,savedInstanceState: Bundle?): View? {
         val binding = DataBindingUtil.inflate<FragmentClicketItemBinding>(inflater,R.layout.fragment_clicket_item,container,false)
-        val args = MainFragmentArgs.fromBundle(arguments!!)
+        val args = ClicketItemFragmentArgs.fromBundle(arguments!!)
         val key = args.resultId
 
         val application = requireNotNull(this.activity).application
@@ -34,6 +34,4 @@ class ClicketItemFragment : Fragment() {
 
             return binding.root
     }
-
-
 }

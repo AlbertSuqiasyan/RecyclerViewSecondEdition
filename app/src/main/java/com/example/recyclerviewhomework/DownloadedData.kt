@@ -3,16 +3,21 @@ package com.example.recyclerviewhomework
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import com.squareup.moshi.Json
 
-
+// TODO:  Add  moshi anotations
 data class DownloadedData(
     val response: Response
 )
 
 data class Response(
+    @Json(name = "currentPage")
     val currentPage: Int,
+    @Json(name = "orderBy")
     val orderBy: String,
+    @Json(name = "pageSize")
     val pageSize: Int,
+    @Json(name = "pages")
     val pages: Int,
     val results: List<Result>,
     val startIndex: Int,

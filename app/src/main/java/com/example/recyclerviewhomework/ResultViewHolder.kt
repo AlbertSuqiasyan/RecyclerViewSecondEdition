@@ -7,7 +7,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.recyclerviewhomework.databinding.ListItemBinding
 import com.squareup.picasso.Picasso
 
-class ResultViewHolder private constructor(val binding: ListItemBinding) : RecyclerView.ViewHolder(binding.root) {
+class ResultViewHolder private constructor(val binding: ListItemBinding) :
+    RecyclerView.ViewHolder(binding.root) {
 
     fun bind(
         item: Result,
@@ -15,7 +16,7 @@ class ResultViewHolder private constructor(val binding: ListItemBinding) : Recyc
         itemPosition: Int
     ) {
         binding.articleNameText.text = item.webTitle
-        binding.listItem.setOnClickListener{view: View? -> clickListener.onClick(item,itemPosition) }
+        binding.listItem.setOnClickListener { view: View -> clickListener.onClick(item, view) }
         Picasso.with(itemView.context)
             .load(item.fields.thumbnail)
             .into(binding.articleThumbnailImage)
@@ -25,7 +26,7 @@ class ResultViewHolder private constructor(val binding: ListItemBinding) : Recyc
     companion object {
         fun from(parent: ViewGroup): ResultViewHolder {
             val layoutInflater = LayoutInflater.from(parent.context)
-            val binding = ListItemBinding.inflate(layoutInflater,parent,false)
+            val binding = ListItemBinding.inflate(layoutInflater, parent, false)
             return ResultViewHolder(binding)
         }
     }

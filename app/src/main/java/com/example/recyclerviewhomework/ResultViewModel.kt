@@ -6,7 +6,8 @@ import androidx.lifecycle.ViewModel
 import retrofit2.Call
 import retrofit2.Response
 
-class ResultViewModel : ViewModel(){
+class ResultViewModel : ViewModel() {
+
     private val _response = MutableLiveData<List<Result>>()
     val response: LiveData<List<Result>> = _response
     private val _error = MutableLiveData<String>()
